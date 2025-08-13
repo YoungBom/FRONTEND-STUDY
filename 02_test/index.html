@@ -1,33 +1,105 @@
 <!DOCTYPE html>
 <!-- lang(language 약어)은 문서의 언어를 명시하는 속성 -->
 <html lang="ko">
-<!-- 문서의 정보는 <head> 태크 안에 작성 -->
+<!-- 문서의 정보는 <head> 태그 안에 작성 -->
 <head>
   <!-- meta: 정보를 의미하는 태그 -->
-  <meta charset="UTF-8">
   <!-- 문자 인코딩 방식: 유니코드 -->
-
-
+  <meta charset="UTF-8">
   <!-- 모바일 디바이스에서 웹페이지가 표시되는 방식 지정
-   뷰포트 너비를 디양한 모바일 디바이스의 가로 너비와 일치시키고, 
-   화면의 확대/축소 100% -->
-<meta name = "viewport" content="width=device-width, initial-scale=1.0">
+    뷰포트 너비를 다양한 모바일 디바이스의 가로 너비와 일치시키고,
+    화면의 확대/축소 100% -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- 문서의 제목을 정의 -->
-<title>Test</title>
+  <!-- 문서의 제목을 정의 -->
+  <title>TEST</title>
+  <!-- CSS, JS 연결하기 -->
 
+<!-- 외부 스타일 시트 -->
+ <link rel="stylesheet" href="./css/main.css">
+
+ <!-- 내부 스타일 시트 -->
+  <style>
+    div{
+      text-decoration: underline;
+    }
+  </style>
+  <!-- 외부 스크립트 -->
+   <script src="./js/main.js"></script>
+   <!-- 내부 스크립트 -->
+    <script>
+      console.log('내부 스크립트');
+      
+    </script>
+  <link rel="stylesheet" href="./css/main.css">
 </head>
-<!-- 사용자 눈에 보이는 구조는 <body> 태크 안에 작성 -->
+<!-- 사용자 눈에 보이는 구조는 <body> 태그 안에 작성 -->
 <body>
+  <div> Hello world!</div>
 
+  <!-- 화면에 이미지 출력하기 -->
+   <!-- alt(alternative의 약어)는 이미지가 출력되지 못하는 경우 대신 출력할 텍스트
+   이미지 경로가 잘못됐거나 네트워크가 불안정하거나 등 이미지 대신 화면에 나올 글자
+   + 웹 접근성과 관련(스크린 리더가 alt 텍스트를 읽어줌) 
+   -->
+   <!-- Quiz: 상대 경로/절대 경로를 사용하여 로그 이미지 출력하기 -->
+   <img src="images/logo.png" alt="로고">
+   <img src="/02_test/images/logo.png" alt="로고">
 
+   <!-- 서버 장애가 발생하거나, 이미지 위치가 변경 또는 삭제 되었다면
+    불러올 수 없음 -->
+   <img src="data:image/jpeg;base64,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" alt="오우예아~">
 
+   <!-- CSS로 배경 이미지 넣기 -->
+    <div class="logo"></div>
 
+    <br>
 
+    <!-- 페이지를 나누고 연결하기(링크 걸기) a태그는 링크를 걸때 쓰는 명령어?-->
+     <a href="https://www.naver.com">NAVER</a>
+    <br>
+
+     <a href="./about/index.html">About</a>
+     <!-- (참고) index.html로 만들면 경로에 생략 가능
+      브라우저가 해당 이름을 가진 파일을 우선적으로 찾아
+      실행하기 때문 -->
+      <br>
+
+      <a href="./about/">About</a>
+
+      <!-- 개발자 도구 사용하기 -->
+<!-- 
+  브라우저에서 제공하는 개발자 도구를 이용해서 웹 사이트를 분석하고 테스트 하는 방법
+  F12 또는 ctrl + shift + i
+  우클릭 -> 검사
+  요소 검사 모드: ctrl + shift + c
+
+  1) Elements 탭: HTML에 대한 정보를 확인
+
+  2) Styles 탭: 특정 HTML 요소에 어떤 스타일이 적용되었는지 CSS에 대한 정보를 확인
+    다른 스타일을 임시로 적용 가능(실제로 개발할 때 종종 쓰게 됨)
+
+  실습:
+  About 링크에 color: red 및 font-size, background 적용 실습!
+
+  여기서 임의로 적용한 스타일은 새로고침하면 다시 리셋됨
+  다른 사람이 만든 웹 사이트에서도 내가 원하는 스타일을 적용해 볼 수 있음
+
+  (추천) 수업 외 시간에 다양한 웹사이트를 찾아 개발자 도구로 HTML, CSS 분석해볼것! (실력향상에 도움)
+  실제로 다른 사이트의 HTML이나 특히 CSS를 따와서 쓰기도 함
+
+  3) Computed 탭: CSS 박스 모델과 함께 실제로 적용된 스타일 값만 모아서 볼 수 있음
+
+  4) Console 탭: JS를 다룰 때 주로 이용 
+
+  5) Sources: 파일 및 코드를 확인
+    페이지 내 파일 오픈
+    ctrl + o 또는 ctrl + p
+    ex) js라고 검색하면 해당 페이지의 js 파일을 확인할 수 있어 편리하다.
+
+  
+  <단축키 팁>
+  마지막으로 사용한 고정 위치로 다시 전환: Control + Shift + D
+-->
 </body>
-
-
-
-
-
 </html>
