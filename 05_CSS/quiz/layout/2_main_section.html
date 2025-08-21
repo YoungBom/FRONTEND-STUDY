@@ -8,47 +8,94 @@
 
   <style>
     .main-background{
-      background-image: url(/05_CSS/quiz/images/shoes.jpg);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-attachment: fixed;
-      padding: 40px;
-      border-radius: 5px;
-      color: #fff;
-      text-align: center;   
-      margin: 0 auto;
+      width: 100%;
+      height: 500px;
+      /* 섹션 영역의 높이는 고정값으로 정해진게 아니라면 지정하지 않는 것을 권장
+      why? 컨텐츠의 유동성 보장
+      높이 지정x -> 콘텐츠 기반(내부의 내용물 크기에 맞게 자연스럽게 결정되도록)
+      */
+
+      background-image: url("/05_CSS/quiz/images/shoes.jpg");
+      background-repeat: no-repeat; /* 반복을 없애는 역할 */
+      background-position: center;  /* 가운대로 백그라운드 옮기기 */
+      background-position: cover; /* 백그라운드 화면 가득 채우기 */
+      text-align: center;   /* 택스트 중앙으로 배치 */
+       
+      /* margin collapse 현상(마진 상쇄) 피하기 */
+      /* 1. 테두리가 안붙에 살짝 떨어트림(꼼수) */
+      /* padding: 0.1px; */
+      /* 2. 패딩 사용하기(권장) */
+      padding-top: 50px;
     }
 
-    h4.main-title{
-      font-size: xx-large;
+    .main-title{
+      font-size: 40px;
       color: white;
+      margin-top: 100px;
+      /* (참고) margin collapse 현상(마진 상쇄) */
+      /* :박스(블록 요소)들의 테두리가 만나면 margin이 합쳐짐 
+      박스가 내부에서 만나든 외부에서 만나든 상관없이 마진을 하나로 합쳐주고 
+      둘다 마진이 있으면 둘 중에 더 큰 마진을 하나만 적용 
+      
+      1. 박스 2개가 부모-자식 관계로 위쪽 테두리가 겹친 상태 
+      2. 박스 2개가 형제 관계로 위, 아래 테두리가 겹친 상태
+      */
       text-align: center;
 
     }
-    
-    button{
+    .main-content {
+      color: #fff;
+    }
+
+
+    .main-button{
       background-color: rgb(255, 255, 255);
       
-      font-size: large;
-      font-weight: bold;
-      padding: 10px 20px;
+      font-size: 20px;
+      padding: 10px 30px;
       border: none;
-      cursor: pointer;
       border-radius: 5%;
-      
+      margin-top: 10px;
+      cursor: pointer;
+      /* 누를 수 있는 요소는 커서 모양을 포인터로 */
+    }
+    .main-button:hover {
+      background-color: #ccc;
+    }
+    /* 겹치는 레이아웃 만들기
+    => position 사용 */
+    .sub-description {
+      /* 부모 width의 80%만 차지하다가 넓어지면 최대 700px까지만 
+      늘어나도록 */
+      width: 80%;
+      max-width: 700px;
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 20px;
+
+      /* 1)relative 사용 시 */
+      position: relative;
+      top: 100px;
+      margin: 0 auto;
+
+      /* 2) absolute 사용 시 */
+      /* position: absolute; */
+      /* bottom: -100px; */
+      /* left: 0; */
+      /* right: 0; */
+      /* margin: auto; */
     }
 
-
-
-
-    .history.h4{
-      text-align: center;
-    }
-   
 
     .history{
-      text-align: left;
+      background-color: #aeaeae;
+      padding: 100px 20px 40px;
     }
+   .history > h4{
+    text-align: center;
+   }
+
+   
   </style>
 </head>
 <body>
