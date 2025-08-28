@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <!--  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>이미지 크기 조정</title>
+  <style>
+    body { line-height: 1.6; 
+           padding: 24px; }
+    
+    .wrap { max-width: 600px; 
+            margin: 0 auto; 
+            text-align: center; }
+
+    label { display: inline-block; 
+            width: 50px; 
+            text-align: right; 
+            margin-right: 8px; }
+    
+    input { width: 120px; 
+            padding: 4px; 
+            margin-bottom: 8px; }
+
+    button { padding: 6px 12px; 
+             margin-left: 8px; 
+             cursor: pointer; }
+
+    img {    display: block; 
+             margin: 20px auto; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h2>이미지 크기 조정</h2>
+    
+    <div>
+      <label for="width">가로 :</label>
+      <input id="width" 
+             type="number" 
+             placeholder="px 단위 입력" />
+    </div>
+    <div>
+      <label for="height">세로 :</label>
+      <input id="height" 
+             type="number" 
+             placeholder="px 단위 입력" />
+      <button id="changeBtn">변경</button>
+    </div>
+
+    
+    <img id="patrick" src="./images/dung.png" alt="뚱이"
+         width="200" height="200" />
+  </div>
+
+  <script>
+    const widthInput = document.getElementById('width');
+    const heightInput = document.getElementById('height');
+    const btn = document.getElementById('changeBtn');
+    const img = document.getElementById('patrick');
+
+    btn.addEventListener('click', () => {
+      const w = parseInt(widthInput.value);
+      const h = parseInt(heightInput.value);
+
+      if (!isNaN(w) && w > 0) img.width = w;
+      if (!isNaN(h) && h > 0) img.height = h;
+    });
+  </script>
+</body>
+</html>

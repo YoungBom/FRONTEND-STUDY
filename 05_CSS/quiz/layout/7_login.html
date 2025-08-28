@@ -65,7 +65,7 @@
       position: relative;
     }
     .login-container .id-box.focused,
-    .login-container .pw-box.focused{
+    .login-container .pw-box.focused {
       border: 2px solid #09aa5c;
     }
     .login-container .id-box {
@@ -73,7 +73,7 @@
     }
     .login-container .pw-box {
       border-radius: 0 0 8px 8px;
-      
+      border-top: 0;
     }
 
     .login-container .text-label {
@@ -83,7 +83,9 @@
       color: rgba(0, 0, 0, 0.5);
       transition: 0.3s;
     }
-    .login-container .form-input:focus + .text-label {
+    .login-container .form-input:focus + .text-label, 
+    .login-container .id-box.on .text-label,
+    .login-container .id-box.on .text-label{ 
       font-size: 12px;
       bottom: 30px;
     }
@@ -106,7 +108,6 @@
         <input type="password" id="pw" class="form-input">
         <label for="pw" class="text-label">비밀번호</label>
         <span class="material-symbols-outlined icon-eye">visibility_off</span>
-        
       </div>
 
       <button type="button" class="btn btn-login">로그인</button>
@@ -117,23 +118,66 @@
   <script>
     const inputEls = document.querySelectorAll('input.form-input');
     const eyeIcon = document.querySelector('.icon-eye');
-    inputEls.forEach(function(inputEl){
+    const pwInput = document.getElementById('pw');
+
+    inputEls.forEach(function (inputEl) {
       console.log(inputEl);
       const parentEl = inputEl.parentElement; // 부모 요소를 반환
       console.log(parentEl);
+      
       // focus: 포커스가 주어졌을 때 발생
-      inputEl.addEventListener('focus', function(){
+      inputEl.addEventListener('focus', function () {
         parentEl.classList.add('focused');
       });
 
-      // blur: 포커스를 잃을 때 발생
-     inputEl.addEventListener('blur', function(){
+      // blur: 포커를 잃을 때 발생
+      inputEl.addEventListener('blur', function () {
         parentEl.classList.remove('focused');
       });
+      // 이벤트 추가 실습
+      // change: 요소의 값이 변경되고 포커스를 잃었을 때 발생
+      inputEl.addEventListener('change', function(){
+        console.log('change 이벤트 발생!');
+        console.log(inputEl.value);
+
+        if(inputEl.value) { // input 요소에 값이 있으면
+          parentEl.classList.add('on');
+        } else {
+          parentEl.classList.remove('on');
+        }
+
+      });
+    
+      // input: 요소가 입력을 받을 때마다 변경된 직후에 발생
+      inputEl.addEventListener('input', function(){
+        console.log('input 이벤트 발생!');
+      });
+    });
+    
+
+
+
+
+
+
+
+
+
+    eyeIcon.addEventListener('click', function () {
+      if (pwInput.type === 'password') {
+        eyeIcon.textContent = 'visibility';
+        pwInput.type = 'text';
+      } else {
+        eyeIcon.textContent = 'visibility_off';
+        pwInput.type = 'password';
+      }
     });
 
-    eyeIcon.forEachfunction()
+    // 삼항 연산자 사용 시
+    // const isPassword = pwInput.type === 'password';
+    // pwInput.type = isPassword ? 'text' : 'password';
+    // eyeIcon.textContent = isPassword ? 'visibility' : 'visibility_off';
+    // });
   </script>
-
 </body>
 </html>

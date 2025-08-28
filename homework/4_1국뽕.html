@@ -1,0 +1,32 @@
+<!doctype html> 
+<html lang="ko"> 
+<head> 
+  <!-- 문자열의 입력후 누적되게 하는 형태의 문제 -->
+  <meta charset="utf-8">
+  <title>문자 누적하기</title>
+</head>
+<body>
+  <h1>문자 누적하기</h1>
+  <input type="text" id="inputText" placeholder="여기에 입력하세요">
+  <button id="btnAdd">누적</button>
+
+  <br><br>
+  <textarea id="result" rows="6" cols="30"></textarea>
+
+  <script>
+    const input = document.getElementById('inputText');
+    const btn = document.getElementById('btnAdd');
+    const result = document.getElementById('result');
+
+    btn.addEventListener('click', function() {
+      const text = input.value.trim();   
+      if (text) {                                
+        result.value += (result.value ? '\n' : '') + text;
+       
+        input.value = '';
+        input.focus();
+      }
+    });
+  </script>
+</body>
+</html>

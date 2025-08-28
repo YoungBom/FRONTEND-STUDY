@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>캐릭터 선택</title>
+</head>
+<style>
+    #characterImg {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 2px solid yellowgreen;
+    }
+</style>
+<body>
+  <h2>스폰지밥, 뚱이, 징징이</h2>
+
+  <img id="characterImg" src="./images/sponge.png" 
+        alt="스펀지밥" width="200">
+        <br><br>
+    <select id="character" onchange="changeImg()">
+    <option value="./images/sponge.png">스폰지밥</option>
+    <option value="./images/dung.png">뚱이</option>
+    <option value="./images/image.png">징징이</option>
+  </select>
+
+  <script>
+    function changeImg() {
+        document.getElementById("characterImg").src =
+        document.getElementById("character").value;
+    }
+  </script>
+</body>
+</html>

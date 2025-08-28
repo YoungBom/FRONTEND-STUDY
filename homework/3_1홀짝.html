@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>구슬 놀이</title>
+  <style>
+    
+     #board { display:flex; 
+              flex-wrap:wrap; 
+              padding:12px; 
+              border:1px solid #ccc; 
+              min-height:60px; }
+
+    .marble { 
+              margin: 5px;
+              width:36px; 
+              height:36px; 
+              border-radius:50%; 
+              background:#00f7ff; }
+  </style>
+</head>
+<body>
+  <button id="btn-add">구슬 추가</button>
+  <button id="btn-parity">홀짝</button>
+  <button id="btn-reset">초기화</button>
+
+  <div id="board"></div>
+
+    <script>
+    
+    const btnAdd = document.getElementById('btn-add');
+    const btnParity = document.getElementById('btn-parity');
+    const btnReset = document.getElementById('btn-reset');
+
+    
+    function addMarble() {
+      const m = document.createElement('div');
+      m.classList.add('marble');
+      board.appendChild(m);
+    }
+
+    
+    function checkParity() {
+      const count = board.childElementCount;
+      if (count === 0) {
+        alert('구슬이 없습니다.');
+        return;
+      }
+      alert(count % 2 === 0 ? `현재 ${count}개: 짝수입니다.` : `현재 ${count}개: 홀수입니다.`);
+    }
+
+    
+    function resetBoard() {
+      
+      board.innerHTML = ('');
+    }
+
+    btnAdd.addEventListener('click', addMarble);
+    btnParity.addEventListener('click', checkParity);
+    btnReset.addEventListener('click', resetBoard);
+  </script>
+</body>
+</html>

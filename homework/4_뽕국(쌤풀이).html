@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<!-- 4번 -->
+  <h1>문자 누적하기</h1>
+  <input type="text" id="stackData">
+  <button type="button" class="btn-stack">누적</button>
+  <br><br>
+  <textarea id="resultArea" cols="30" rows="5"></textarea>
+
+  <script>
+    const stackDataInput = document.querySelector('#stackData');
+    const stackBtn = document.querySelector('.btn-stack');
+    const resultArea = document.querySelector('#resultArea');
+
+    stackBtn.addEventListener('click', function () {
+      resultArea.value += stackDataInput.value;
+      stackDataInput.value = '';
+    });
+  </script>
+  
+</body>
+</html>
