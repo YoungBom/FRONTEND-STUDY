@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>둥글둥글 테두리</title>
+  <style>
+    #pic {
+      width: 150px;
+      height: 150px;
+      border: 4px dotted green;
+      border-radius: 40px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .row { display:flex; align-items:center; gap:10px; }
+  </style>
+</head>
+<body>
+  <h2>둥글둥글 테두리</h2>
+
+  <img id="pic" src="./images/image.png" alt="테두리 테스트 이미지">
+
+  <div class="row">
+    <input id="range" 
+           type="range" 
+           min="0" 
+           max="75" 
+           step="5" 
+           value="40">
+    <span id="val">40</span>
+  </div>
+
+  <script>
+    const img  = document.getElementById('pic');
+    const rng  = document.getElementById('range');
+    const out  = document.getElementById('val');
+
+    function radiusAdd(round) {
+      img.style.borderRadius = `${round}px`;
+      out.textContent = round;
+    }
+
+    rng.addEventListener('input',  () => radiusAdd(rng.value));
+    rng.addEventListener('change', () => radiusAdd(rng.value));
+
+    radiusAdd(rng.value);
+  </script>
+</body>
+</html>

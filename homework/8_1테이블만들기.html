@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>테이블 만들기</title>
+  <style>
+    table { border-collapse: collapse; margin-top: 16px; }
+    td { border: 1px solid #000; width: 50px; height: 30px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h2>행 열 갯수 각각 입력받아 테이블 만들기</h2>
+  <button id="makeTable">테이블 생성</button>
+  <div id="result"></div>
+
+  <script>
+    const btn = document.getElementById('makeTable');
+    const result = document.getElementById('result');
+
+    btn.addEventListener('click', function () {
+      const rows = Number(prompt("테이블 행의 갯수는?"));   
+      const cols = Number(prompt("테이블 열의 갯수는?"));   
+
+      if (!rows || !cols) return;  
+
+      let html = "<table>";
+      for (let r = 0; r < rows; r++) {
+        html += "<tr>";
+        for (let c = 0; c < cols; c++) {
+          html += "<td></td>";
+        }
+        html += "</tr>";
+      }
+      html += "</table>";
+
+      result.innerHTML = html; 
+    });
+
+//    let num = 1; // 행렬을 만들면서 숫자 입력하기
+
+//for (let r = 0; r < rows; r++) {
+//  html += "<tr>";
+//  for (let c = 0; c < cols; c++) {
+//    html += `<td>${num}</td>`; 
+//    num++; // 
+//  }
+//  html += "</tr>";
+//}
+  </script>
+</body>
+</html>
