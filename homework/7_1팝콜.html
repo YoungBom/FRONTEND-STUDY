@@ -24,7 +24,7 @@
   <script>
     const countInput = document.getElementById('count');   
     const orderBtn   = document.getElementById('orderBtn'); 
-    const result     = document.getElementById('result');   
+    const comboList     = document.getElementById('result');   
 
     function render() {
       const n = Number(countInput.value);  
@@ -38,7 +38,7 @@
           <img src="./images/popcorn.png" alt="팝콘"> 
           <img src="./images/coke.png" alt="콜라"> 
           <img src="./images/coke.png" alt="콜라">`;
-        result.appendChild(div);
+        comboList.appendChild(div);
       }
     }
 

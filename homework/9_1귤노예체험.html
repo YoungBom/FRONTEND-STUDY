@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8">
-  <title>황돔의 귤농장</title>
+  <title>앵이의 귤농장</title>
   <style>
     .orange { width:40px; 
               margin:4px; 
@@ -12,7 +12,7 @@
   </style>
 </head>
 <body>
-  <h2>황돔의 귤농장</h2>
+  <h2>앵이의 귤농장</h2>
   <button id="startBtn">체험 시작</button>
   <div id="result"></div>
 
@@ -22,14 +22,16 @@
 
     btn.addEventListener('click', function() {
       const maxWeight = Number(prompt("몇 g까지 딸까요? "));
-      if (!maxWeight || maxWeight < 10) return;  
+      if (!maxWeight || maxWeight < 10) 
+      return;  
 
       result.innerHTML = '';  
       let weight = 0;
 
       while (weight < maxWeight) {
         weight += 10;  
-        if (weight > maxWeight) break;
+        if (weight > maxWeight) 
+        break;
 
         const div = document.createElement('div');
         div.className = 'orange';
